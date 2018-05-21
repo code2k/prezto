@@ -1,0 +1,45 @@
+#
+# Slight cutomization of the 'sorin' prompt.
+#
+
+#
+# 16 Terminal Colors
+# -- ---------------
+#  0 black
+#  1 red
+#  2 green
+#  3 yellow
+#  4 blue
+#  5 magenta
+#  6 cyan
+#  7 white
+#  8 bright black
+#  9 bright red
+# 10 bright green
+# 11 bright yellow
+# 12 bright blue
+# 13 bright magenta
+# 14 bright cyan
+# 15 bright white
+#
+
+# Load dependencies.
+pmodload 'helper'
+
+expand-or-complete-with-dots() {
+  echo -n "\e[31m...\e[0m"
+  zle expand-or-complete
+  zle redisplay
+}
+
+function prompt_code2k_setup {
+  prompt_sorin_setup
+
+  export PROMPT='%n%f@%f%m%f %F{4}${_prompt_sorin_pwd}%(!. %B%F{1}#%f%b.)%F{11}%(!.#.>) '
+  zstyle ':prezto:module:git:info:untracked' format ' %%B%F{11}◼%f%%b'
+
+  zle -N expand-or-complete-with-dots
+  bindkey "^I" expand-or-complete-with-dots
+}
+
+prompt_code2k_setup "$@"
