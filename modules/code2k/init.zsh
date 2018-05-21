@@ -1,6 +1,8 @@
 source "${0:h}/macos.zsh"
 source "${0:h}/fzf.zsh"
 
+unsetopt correct
+
 alias l=ll
 alias lrt='lt'
 alias ...='../..'
