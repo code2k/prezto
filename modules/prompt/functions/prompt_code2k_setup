@@ -35,7 +35,7 @@ expand-or-complete-with-dots() {
 function prompt_code2k_setup {
   prompt_sorin_setup
 
-  export PROMPT='%n%f@%f%m%f %F{4}${_prompt_sorin_pwd}%(!. %B%F{1}#%f%b.)%F{11}%(!.#.>) '
+  export PROMPT='%F{11}%n%f@%f%m%f %F{4}${_prompt_sorin_pwd}%(!. %B%F{1}#%f%b.)%B%F{11}%(!.#.>)%f%b '
   zstyle ':prezto:module:git:info:untracked' format ' %%B%F{11}◼%f%%b'
 
   zle -N expand-or-complete-with-dots
