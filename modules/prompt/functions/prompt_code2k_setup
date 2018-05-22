@@ -26,20 +26,16 @@
 # Load dependencies.
 pmodload 'helper'
 
-expand-or-complete-with-dots() {
-  echo -n "\e[31m...\e[0m"
-  zle expand-or-complete
-  zle redisplay
-}
-
 function prompt_code2k_setup {
   prompt_sorin_setup
 
-  export PROMPT='%F{11}%n%f@%f%m%f %F{4}${_prompt_sorin_pwd}%(!. %B%F{1}#%f%b.)%B%F{11}%(!.#.>)%f%b '
-  zstyle ':prezto:module:git:info:untracked' format ' %%B%F{11}◼%f%%b'
+  zstyle ':prezto:module:editor:info:completing' format '%B%F{1}...%f%b'
+  zstyle ':prezto:module:editor:info:keymap:primary' format '%B%F{11}❯%f%b'
+  zstyle ':prezto:module:editor:info:keymap:primary:overwrite' format '%F{3}♺%f'
+  zstyle ':prezto:module:editor:info:keymap:alternate' format '%B%F{11}❮%f%b'
 
-  zle -N expand-or-complete-with-dots
-  bindkey "^I" expand-or-complete-with-dots
+  zstyle ':prezto:module:git:info:untracked' format ' %%B%F{11}◼%f%%b'
+  export PROMPT='%F{11}%n@%m%f %F{4}${_prompt_sorin_pwd}%f%(!. %B%F{1}#%f%b.)${editor_info[keymap]} '
 }
 
 prompt_code2k_setup "$@"
