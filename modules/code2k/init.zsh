@@ -9,7 +9,7 @@ alias ...='../..'
 alias ....='../../..'
 alias x=dtrx
 
-alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
+alias myip="dig +short myip.opendns.com @resolver1.opendns.com"
 
 # Load rbenv
 if (( $+commands[rbenv] )); then
