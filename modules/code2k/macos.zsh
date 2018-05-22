@@ -10,7 +10,7 @@ fi
 
 # Needs "brew install coreutils"
 if [[ -s "$(brew --prefix)/bin/gls" ]]; then
-  alias ls='$(brew --prefix)/bin/gls --color --group-directories-first'
+  alias ls="$(brew --prefix)/bin/gls --color --group-directories-first"
 fi
 
 # macOS specific alias:
