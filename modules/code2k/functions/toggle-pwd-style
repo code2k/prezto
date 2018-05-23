@@ -1,0 +1,11 @@
+#
+# Toggle between 'long' and 'short' pwd prompt styles.
+#
+
+function toggle-pwd-style {
+  if zstyle -m ':prezto:module:prompt' pwd-length 'long'; then
+    zstyle ':prezto:module:prompt' pwd-length 'short'
+  elif zstyle -m ':prezto:module:prompt' pwd-length 'short'; then
+    zstyle ':prezto:module:prompt' pwd-length 'long'
+  fi
+}
