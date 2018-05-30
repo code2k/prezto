@@ -38,6 +38,7 @@ zstyle ':prezto:load' pmodule \
   'git' \
   'archive' \
   'history-substring-search' \
+  'osx' \
   'code2k' \
   'prompt'
 
