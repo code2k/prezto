@@ -10,6 +10,9 @@ if (( ! $+commands[perl] )); then
   return 1
 fi
 
+# Load dependencies.
+pmodload 'helper'
+
 #
 # Load Perlbrew or plenv
 #
@@ -37,7 +40,7 @@ fi
 # Local Module Installation
 #
 
-if [[ "$OSTYPE" == darwin* ]]; then
+if is-darwin; then
   # Perl is slow; cache its output.
   cache_file="${TMPDIR:-/tmp}/prezto-perl-cache.$UID.zsh"
   perl_path="$HOME/Library/Perl/5.12"
